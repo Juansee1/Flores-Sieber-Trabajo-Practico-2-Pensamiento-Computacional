@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 import numpy as np
 
 def procesar_canal(canal, tamaño_bloque: int, paleta):
+=======
+def procesar_canal(canal, tamaño_bloque:float, paleta:str):
+>>>>>>> a259072e52c38a4752c0c3c585e89942e57cc5fa
         for y in range(0, canal.shape[0], tamaño_bloque):
             for x in range(0, canal.shape[1], tamaño_bloque):
                 bloque = canal[y : y+tamaño_bloque, x : x+tamaño_bloque]
@@ -12,15 +16,23 @@ def procesar_canal(canal, tamaño_bloque: int, paleta):
                 
                 bloque[:] = color_mas_cercano
     
+<<<<<<< HEAD
 
 def mapeo(x:int, y:int, array_redimensionado, PALETA:str) -> int:
     pixell = array_redimensionado[y, x]
     i = round((1 - (pixell)/255) * (len(PALETA) - 1))
     return int(i) 
+=======
+def mapeo(x:int, y:int, array_redimensionado, PALETA) -> float:
+    pixell = array_redimensionado[y, x]
+    i = round((1 - (pixell)/255) * (len(PALETA) - 1))
+    return i 
+>>>>>>> a259072e52c38a4752c0c3c585e89942e57cc5fa
 
 def verificar_ruta():
     pass
 
+<<<<<<< HEAD
 def guardar_ascii_art(ascii_art: str, ruta_salida: str):
     with open(ruta_salida, 'w') as f:
         f.write(ascii_art)
@@ -40,3 +52,6 @@ def verificar_ancho(ancho_imagen):
                 if ancho_imagen <= 0:
                     ancho_imagen = False
                     print("El ancho ingresado no es valido, vuelva a intentarlo")
+=======
+
+>>>>>>> a259072e52c38a4752c0c3c585e89942e57cc5fa

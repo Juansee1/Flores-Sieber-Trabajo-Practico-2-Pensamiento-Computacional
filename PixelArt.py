@@ -1,8 +1,12 @@
 import numpy as np
 from PIL import Image
 from funciones import procesar_canal
+<<<<<<< HEAD
 
 def pixelart(ruta_imagen, tamaño_bloque, niveles_de_color, ruta_guardado):
+=======
+def pixelart(ruta_imagen, tamaño_bloque, niveles_de_color):
+>>>>>>> a259072e52c38a4752c0c3c585e89942e57cc5fa
     Imagen = Image.open(ruta_imagen)
     paleta = np.linspace(0, 255, num = niveles_de_color)
     array_imagen = np.array(Imagen)
@@ -18,9 +22,12 @@ def pixelart(ruta_imagen, tamaño_bloque, niveles_de_color, ruta_guardado):
     imagen_reconstruida = np.dstack((canal_rojo, canal_verde, canal_azul))
     imagen_reconstruida = imagen_reconstruida.astype(np.uint8)
     Imagen_procesada = Image.fromarray(imagen_reconstruida)
+<<<<<<< HEAD
     
 
     Imagen_procesada.save(ruta_guardado)
     print(f"Imagen guardada exitosamente en: {ruta_guardado}")
     
+=======
+>>>>>>> a259072e52c38a4752c0c3c585e89942e57cc5fa
     Imagen_procesada.show()
