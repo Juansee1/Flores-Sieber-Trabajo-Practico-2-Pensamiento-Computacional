@@ -2,8 +2,18 @@ import numpy as np
 from PIL import Image
 from funciones import procesar_canal
 
-def pixelart(ruta_imagen, tamaño_bloque, niveles_de_color, ruta_guardado):
-    Imagen = Image.open(ruta_imagen)
+def pixelart(ruta_imagen: str, tamaño_bloque: int, niveles_de_color:int, ruta_guardado:str):
+    """
+    Convierte la imagen original a estilo Pixel Art armando bloques cuadrados de píxeles 
+    y reduciendo la cantidad de colores disponibles
+
+    Args:
+        ruta_imagen (str): donde está la foto que queremos pixelar
+        tamaño_bloque (int): que tan grandes van a ser los píxeles cuadrados nuevos
+        niveles_de_color (int): cuantos colores distintos le dejamos usar a la paleta
+        ruta_guardado (str): donde guardamos la nueva imagen 
+    """
+    Imagen = Image.open(ruta_imagen).convert('RGB')
     paleta = np.linspace(0, 255, num = niveles_de_color)
     array_imagen = np.array(Imagen)
 

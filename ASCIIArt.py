@@ -2,7 +2,15 @@ import numpy as np
 from PIL import Image
 from funciones import mapeo, normalizar, guardar_ascii_art
 
-def asciiart(ruta_imagen, ancho_imagen, ruta_guardado): 
+def asciiart(ruta_imagen: str, ancho_imagen: int, ruta_guardado:str): 
+    """
+    Pasa una imagen a texto ASCII: la pasa a blanco y negro, 
+    ajusta el tamaño, le asigna los caracteres y guarda el archivo de texto
+
+    ruta_imagen (str): donde está la foto original que queremos transformar
+    ancho_imagen (int): cuantas letras de ancho queremos que tenga el dibujo
+    ruta_guardado (str): donde guardamos el archivo .txt final
+    """
     PALETA = "$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!lI;:,\"^`'. "
     Imagen = Image.open(ruta_imagen)
 
@@ -25,7 +33,7 @@ def asciiart(ruta_imagen, ancho_imagen, ruta_guardado):
     # redimensión
     nuevo_ancho = ancho_imagen
     ancho1, alto1 = imagen_normalizada.size
-    nuevo_alto = int((alto1 * nuevo_ancho / ancho1) * 0.45) # verificar formula
+    nuevo_alto = int((alto1 * nuevo_ancho / ancho1) * 0.45)
 
     imagen_redimensionada = imagen_normalizada.resize((nuevo_ancho, nuevo_alto))
     array_redimensionado = np.array(imagen_redimensionada)
